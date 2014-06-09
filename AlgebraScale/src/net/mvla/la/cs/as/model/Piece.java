@@ -7,11 +7,11 @@ public class Piece {
 	//It also stores position of the piece since I didn't want to have to track it in the GUI.
 	//It is an awful breech of MVC.
 	
-	final static int POS_CONST = 1;
-	final static int NEG_CONST = 2;
-	final static int POS_VAR = 3;
-	final static int NEG_VAR = 4;
-	final static int OTHER = 5;
+	public final static int POS_CONST = 1;
+	public final static int NEG_CONST = 2;
+	public final static int POS_VAR = 3;
+	public final static int NEG_VAR = 4;
+	public final static int OTHER = 5;
 	
 	private int value;
 	private int degree;

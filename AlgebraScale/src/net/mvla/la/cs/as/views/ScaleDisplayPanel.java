@@ -16,71 +16,71 @@ import javax.swing.JPanel;
 
 import net.mvla.la.cs.as.model.Piece;
 
-class ScaleDisplayPanel extends JPanel implements MouseMotionListener {
+public class ScaleDisplayPanel extends JPanel implements MouseMotionListener {
 	
 	//these values give the relative sizes of all of the images in the GUI
 	//they are meant to be tweaked to achieve the best overall look to the GUI
 	//the actual values for all of these values (in pixels) are set in the 
 	//function setSizes
-	final static int BOTH_SIDES_EQUAL = 0;
-	final static int LEFT_SIDE_HEAVIER = 1;
-	final static int RIGHT_SIDE_HEAVIER = -1;
-	final static double PIECE_WIDTH_PERCENTAGE = 0.03; //percentage of screen width
-	final static double BOX_HEIGHT_PERCENTAGE = 0.05;
-	final static double VARIABLE_PIECE_SCALE_FACTOR = 1.7; //how many times bigger the variables are
-	final static double PIECE_ROW_SPACING_PERCENTAGE = 0.02;
-	final static int DEFAULT_WIDTH = 800;
-	final static int DEFAULT_HEIGHT = 380;
-	final static double SCALE_LEFT_MARGIN_PERCENTAGE = 0.02; //spacing between rows of pieces in pile
-	final static double PILE_LEFT_MARGIN_PERCENTAGE = 0.28;
-	final static double BOTTOM_MARGIN_PERCENTAGE = 0.05;
-	final static double PIECE_SPACING_PERCENTAGE = 0.01;
-	final static double SHELF_WIDTH_PERCENTAGE = 0.45;
-	final static double SHELF_HEIGHT_PERCENTAGE = 0.04;
-	final static double SHELF_VERTICAL_POSITION_PERCENTAGE = 0.35;
-	final static double STRING_LENGTH_PERCENTAGE = 0.20;
-	final static double TOP_MARGIN_PERCENTAGE = 0.10;
-	final static double BASE_WIDTH_PERCENTAGE = 0.40;
-	final static double BASE_HEIGHT_PERCENTAGE = 0.04;
-	final static double BASE_VERTICAL_POSITION_PERCENTAGE = 0.22 + SHELF_VERTICAL_POSITION_PERCENTAGE;
-	final static double BEAM_WIDTH_PERCENTAGE = 0.55;
-	final static double BEAM_HEIGHT_PERCENTAGE = 0.04;
-	final static double BEAM_VERTICAL_POSITION_PERCENTAGE = 0.13 + SHELF_VERTICAL_POSITION_PERCENTAGE;
-	final static double POST_WIDTH_PERCENTAGE = 0.02;
-	final static double POST_HEIGHT_PERCENTAGE = 0.09;
-	final static double POST_VERTICAL_POSITION_PERCENTAGE = 0.15 + SHELF_VERTICAL_POSITION_PERCENTAGE;
-	final static double JOINT_WIDTH_PERCENTAGE = 0.04;
-	final static double JOINT_HEIGHT_PERCENTAGE = 0.04;
-	final static double JOINT_VERTICAL_POSITION_PERCENTAGE = 0.13 + SHELF_VERTICAL_POSITION_PERCENTAGE;
-	final static double SCALE_MOVEMENT_DISTANCE_PERCENTAGE = 0.04;
+	public final static int BOTH_SIDES_EQUAL = 0;
+	public final static int LEFT_SIDE_HEAVIER = 1;
+	public final static int RIGHT_SIDE_HEAVIER = -1;
+	public final static double PIECE_WIDTH_PERCENTAGE = 0.03; //percentage of screen width
+	public final static double BOX_HEIGHT_PERCENTAGE = 0.05;
+	public final static double VARIABLE_PIECE_SCALE_FACTOR = 1.7; //how many times bigger the variables are
+	public final static double PIECE_ROW_SPACING_PERCENTAGE = 0.02;
+	public final static int DEFAULT_WIDTH = 800;
+	public final static int DEFAULT_HEIGHT = 380;
+	public final static double SCALE_LEFT_MARGIN_PERCENTAGE = 0.02; //spacing between rows of pieces in pile
+	public final static double PILE_LEFT_MARGIN_PERCENTAGE = 0.28;
+	public final static double BOTTOM_MARGIN_PERCENTAGE = 0.05;
+	public final static double PIECE_SPACING_PERCENTAGE = 0.01;
+	public final static double SHELF_WIDTH_PERCENTAGE = 0.45;
+	public final static double SHELF_HEIGHT_PERCENTAGE = 0.04;
+	public final static double SHELF_VERTICAL_POSITION_PERCENTAGE = 0.35;
+	public final static double STRING_LENGTH_PERCENTAGE = 0.20;
+	public final static double TOP_MARGIN_PERCENTAGE = 0.10;
+	public final static double BASE_WIDTH_PERCENTAGE = 0.40;
+	public final static double BASE_HEIGHT_PERCENTAGE = 0.04;
+	public final static double BASE_VERTICAL_POSITION_PERCENTAGE = 0.22 + SHELF_VERTICAL_POSITION_PERCENTAGE;
+	public final static double BEAM_WIDTH_PERCENTAGE = 0.55;
+	public final static double BEAM_HEIGHT_PERCENTAGE = 0.04;
+	public final static double BEAM_VERTICAL_POSITION_PERCENTAGE = 0.13 + SHELF_VERTICAL_POSITION_PERCENTAGE;
+	public final static double POST_WIDTH_PERCENTAGE = 0.02;
+	public final static double POST_HEIGHT_PERCENTAGE = 0.09;
+	public final static double POST_VERTICAL_POSITION_PERCENTAGE = 0.15 + SHELF_VERTICAL_POSITION_PERCENTAGE;
+	public final static double JOINT_WIDTH_PERCENTAGE = 0.04;
+	public final static double JOINT_HEIGHT_PERCENTAGE = 0.04;
+	public final static double JOINT_VERTICAL_POSITION_PERCENTAGE = 0.13 + SHELF_VERTICAL_POSITION_PERCENTAGE;
+	public final static double SCALE_MOVEMENT_DISTANCE_PERCENTAGE = 0.04;
 	
-	int pieceWidth;
-	int boxHeight;
-	int balloonHeight;
-	int variablePieceWidth;
-	int variablePieceHeight;
-	int stringLength;
-	int boxBaseline;
-	int balloonBaseline;
-	int pieceRowSpacing;
-	int scaleLeftMargin;
-	int pileLeftMargin;
-	int topMargin;
-	int bottomMargin;
-	int pieceSpacing;
-	int shelfWidth, shelfHeight, shelfVerticalPosition;
-	int baseWidth, baseHeight, baseVerticalPosition;
-	int beamWidth, beamHeight, beamVerticalPosition;
-	int postWidth, postHeight, postVerticalPosition;
-	int jointWidth, jointHeight, jointVerticalPosition;
-	int scaleMovementDistance;
+	public int pieceWidth;
+	public int boxHeight;
+	public int balloonHeight;
+	public int variablePieceWidth;
+	public int variablePieceHeight;
+	public int stringLength;
+	public int boxBaseline;
+	public int balloonBaseline;
+	public int pieceRowSpacing;
+	public int scaleLeftMargin;
+	public int pileLeftMargin;
+	public int topMargin;
+	public int bottomMargin;
+	public int pieceSpacing;
+	public int shelfWidth, shelfHeight, shelfVerticalPosition;
+	public int baseWidth, baseHeight, baseVerticalPosition;
+	public int beamWidth, beamHeight, beamVerticalPosition;
+	public int postWidth, postHeight, postVerticalPosition;
+	public int jointWidth, jointHeight, jointVerticalPosition;
+	public int scaleMovementDistance;
 	
 	private int scaleBalanceStatus; //one of three values: BOTH_SIDES_EQUAL, LEFT_SIDE_HEAVIER, RIGHT_SIDE_HEAVIER
 	
-	Piece draggedPiece;		// This is the variable for storing the currently dragged piece
+	public Piece draggedPiece;		// This is the variable for storing the currently dragged piece
 							// The piece will be added to the offScreenCanvas if the user decides to place it on the scale
-	int draggedPieceOffsetX; // horizontal difference between corner of piece and where user clicked
-	int draggedPieceOffsetY; // vertical difference between corner of piece and where user clicked
+	public int draggedPieceOffsetX; // horizontal difference between corner of piece and where user clicked
+	public int draggedPieceOffsetY; // vertical difference between corner of piece and where user clicked
 	
 	BufferedImage defaultImage;		//this is an image of the GUI without any pieces drawn on it
 	BufferedImage defaultLeftSideHeavierImage;	//this is an image of the GUI with the scale lower on the left
@@ -334,7 +334,7 @@ class ScaleDisplayPanel extends JPanel implements MouseMotionListener {
 	}
 	
 	//This function redraws the offScreenCanvas. It is called whenever another piece is added to the scale (or removed)
-	void redrawOffScreenCanvas(ArrayList<Piece> pieces) {
+	public void redrawOffScreenCanvas(ArrayList<Piece> pieces) {
 		offScreenCanvas = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
 		Graphics g = offScreenCanvas.getGraphics();
 		
@@ -430,7 +430,7 @@ class ScaleDisplayPanel extends JPanel implements MouseMotionListener {
 	 * @param y the y position of the click
 	 * @return true if a dragged piece was set
 	 */
-	boolean setDraggedPieceFromPile(int x, int y) {
+	public boolean setDraggedPieceFromPile(int x, int y) {
 		double width = getWidth();
 		double height = getHeight();
 		if (y > balloonBaseline - variablePieceHeight  && y < balloonBaseline) {

@@ -22,7 +22,7 @@ public class UserNameView extends JPanel {
 	JButton[] userButtons;
 	JPanel userButtonPanel;
 	JLabel createNewUserLabel;
-	JTextField createNewUserTextField;
+	public JTextField createNewUserTextField;
 	JButton createNewUserButton;
 	JPanel createNewUserPanel;
 

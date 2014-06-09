@@ -16,15 +16,15 @@ import java.util.Scanner;
 public class UserDatabase implements Serializable {
 
 	private static final long serialVersionUID = 4282917483957283L;
-	ArrayList<User> userList;
-	String exerciseSourceFile;
+	public ArrayList<User> userList;
+	public String exerciseSourceFile;
 	
 	public UserDatabase(String fileName) {
 		userList = new ArrayList<User>();
 		exerciseSourceFile = fileName;
 	}
 	
-	void export(File file) throws IOException {
+	public void export(File file) throws IOException {
 		ObjectOutputStream out;
 		FileOutputStream stream = new FileOutputStream(file);
 		out = new ObjectOutputStream(stream);
@@ -50,11 +50,11 @@ public class UserDatabase implements Serializable {
 	
 	
 	
-	class User implements Serializable {
+	public class User implements Serializable {
 		private static final long serialVersionUID = 4282917483957284L;
 
-		String userName;
-		ArrayList<Lesson> lessonList;
+		public String userName;
+		public ArrayList<Lesson> lessonList;
 		
 		public User(String name) {
 			userName = name;
@@ -67,15 +67,15 @@ public class UserDatabase implements Serializable {
 			
 		}
 		
-		void addLesson(int number, String name) {
+		public void addLesson(int number, String name) {
 			lessonList.add(new Lesson(number, name));
 		}
 		
-		Lesson getLesson(int lessonNumber) { 
+		public Lesson getLesson(int lessonNumber) { 
 			return lessonList.get(lessonNumber - 1);
 		}
 		
-		void createLessonList() throws FileNotFoundException {
+		public void createLessonList() throws FileNotFoundException {
 			Scanner lessonFileScanner = new Scanner(ClassLoader.getSystemResourceAsStream(exerciseSourceFile));
 			int lessonCounter = 0;
 			int exerciseCounter = 1;
@@ -95,17 +95,17 @@ public class UserDatabase implements Serializable {
 
 		}
 		
-		void setComplete(int lessonNumber, int exerciseNumber) {
+		public void setComplete(int lessonNumber, int exerciseNumber) {
 			lessonList.get(lessonNumber - 1).exerciseList.get(exerciseNumber - 1).isCompleted = true;
 		}
 		
 	}
 	
-	class Lesson implements Serializable {
+	public class Lesson implements Serializable {
 		private static final long serialVersionUID = 4282917483957285L;
-		int lessonNumber;
-		String lessonName;
-		ArrayList<Exercise> exerciseList;
+		public int lessonNumber;
+		public String lessonName;
+		public ArrayList<Exercise> exerciseList;
 		
 		public Lesson(int number, String name) {
 			lessonNumber = number;
@@ -113,11 +113,11 @@ public class UserDatabase implements Serializable {
 			exerciseList = new ArrayList<Exercise>();
 		}
 		
-		void addExercise(int number, String str) {
+		public void addExercise(int number, String str) {
 			exerciseList.add(new Exercise(number, str));
 		}
 		
-		String getExerciseString(int number) {
+		public String getExerciseString(int number) {
 			return exerciseList.get(number - 1).exerciseString;
 		}
 		
@@ -126,12 +126,12 @@ public class UserDatabase implements Serializable {
 		}
 	}
 	
-	class Exercise implements Serializable {
+	public class Exercise implements Serializable {
 		
 		private static final long serialVersionUID = 4282917483957286L;	
-		int exerciseNumber;
-		String exerciseString;
-		boolean isCompleted;
+		public int exerciseNumber;
+		public String exerciseString;
+		public boolean isCompleted;
 		
 		public Exercise(int number, String str) {
 			exerciseNumber = number;

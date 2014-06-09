@@ -22,32 +22,32 @@ import javax.swing.*;
 
 public class AlgebraScaleView extends JPanel {
 	
-	ScaleDisplayPanel displayPanel = new ScaleDisplayPanel();
+	public ScaleDisplayPanel displayPanel = new ScaleDisplayPanel();
 	
 	JPanel navigationPanel = new JPanel();
-	JButton previousExerciseButton = new JButton("Previous Exercise");
+	public JButton previousExerciseButton = new JButton("Previous Exercise");
 	private JButton lessonMenuButton = new JButton("Lesson Menu");
-	JButton nextExerciseButton = new JButton("Next Exercise");
+	public JButton nextExerciseButton = new JButton("Next Exercise");
 	private JPanel equationPanel = new JPanel();
-	JLabel equationDisplayLabel = new JLabel("Enter an equation");
+	public JLabel equationDisplayLabel = new JLabel("Enter an equation");
 	private JPanel messagePanel = new JPanel();
-	JLabel messageDisplayLabel = new JLabel("");
+	public JLabel messageDisplayLabel = new JLabel("");
 	
 	
 	
 	private JPanel checkAnswerPanel = new JPanel();
 	private JLabel variableInputLabel = new JLabel("x = ");
-	JTextField variableInputTextField = new JTextField(5);
+	public JTextField variableInputTextField = new JTextField(5);
 	private JLabel leftSideInputLabel = new JLabel("Left Side of Equation = ");
-	JTextField leftSideInputTextField = new JTextField(5);
+	public JTextField leftSideInputTextField = new JTextField(5);
 	private JLabel rightSideInputLabel = new JLabel("Right Side of Equation = ");
-	JTextField rightSideInputTextField = new JTextField(5);
+	public JTextField rightSideInputTextField = new JTextField(5);
 	private JButton checkAnswerButton = new JButton("Check Answer");
 	
 	private JPanel inputPanel = new JPanel();
-	JLabel equationInputLabel = new JLabel("Equation:");
-	JTextField equationInputTextField = new JTextField(20);
-	JButton submitEquationButton = new JButton("Submit Equation");
+	public JLabel equationInputLabel = new JLabel("Equation:");
+	public JTextField equationInputTextField = new JTextField(20);
+	public JButton submitEquationButton = new JButton("Submit Equation");
 	private JButton clearAllButton = new JButton("Clear All");
 	private JButton boxesToBalloonsButton = new JButton("Boxes <==> Balloons");
 	
@@ -110,15 +110,15 @@ public class AlgebraScaleView extends JPanel {
 		add(controlPanel, BorderLayout.SOUTH);
 	}
 	
-	void addDisplayPanelMouseListener(MouseListener listener) {
+	public void addDisplayPanelMouseListener(MouseListener listener) {
 		displayPanel.addMouseListener(listener);
 	}
 	
-	void addDisplayPanelComponentListener(ComponentListener listener) {
+	public void addDisplayPanelComponentListener(ComponentListener listener) {
 		displayPanel.addComponentListener(listener);
 	}
 	
-	void addButtonListener(ActionListener listener) {
+	public void addButtonListener(ActionListener listener) {
 		submitEquationButton.addActionListener(listener);
 		checkAnswerButton.addActionListener(listener);
 		clearAllButton.addActionListener(listener);

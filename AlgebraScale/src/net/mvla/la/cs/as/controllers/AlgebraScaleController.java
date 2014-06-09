@@ -1,20 +1,16 @@
 package net.mvla.la.cs.as.controllers;
 
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -43,6 +39,7 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 
 	}
 	
+	public static final long serialVersionUID = 28376583947L;
 	private UserNameView userNameView;
 	private AlgebraScaleView scaleView;
 	private AlgebraScaleModel model;
@@ -115,13 +112,13 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 		double weightDiff = model.weightDifference();
 		if (weightDiff > 0) {
 			panel
-					.setScaleBalanceStatus(panel.LEFT_SIDE_HEAVIER);
+					.setScaleBalanceStatus(ScaleDisplayPanel.LEFT_SIDE_HEAVIER);
 		} else if (weightDiff < 0) {
 			panel
-					.setScaleBalanceStatus(panel.RIGHT_SIDE_HEAVIER);
+					.setScaleBalanceStatus(ScaleDisplayPanel.RIGHT_SIDE_HEAVIER);
 		} else
 			panel
-					.setScaleBalanceStatus(panel.BOTH_SIDES_EQUAL);
+					.setScaleBalanceStatus(ScaleDisplayPanel.BOTH_SIDES_EQUAL);
 	}
 	
 	

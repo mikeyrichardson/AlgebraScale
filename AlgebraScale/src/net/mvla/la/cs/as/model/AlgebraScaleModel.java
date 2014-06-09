@@ -20,9 +20,9 @@ public class AlgebraScaleModel {
 //		System.out.print(model.equation);
 //	}
 
-	ArrayList<Piece> pieces;
-	LinearEquation equation;
-	Fraction solution;
+	public ArrayList<Piece> pieces;
+	public LinearEquation equation;
+	public Fraction solution;
 	
 	public AlgebraScaleModel(LinearEquation equation) {
 		pieces = new ArrayList<Piece>();
