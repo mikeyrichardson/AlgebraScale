@@ -1,4 +1,4 @@
-package net.mvla.la.cs.scale;
+package net.mvla.la.cs.as.views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

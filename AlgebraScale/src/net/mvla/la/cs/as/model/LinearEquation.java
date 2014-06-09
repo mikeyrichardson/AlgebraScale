@@ -1,4 +1,4 @@
-package net.mvla.la.cs.scale;
+package net.mvla.la.cs.as.model;
 import org.apache.commons.math3.fraction.Fraction;
 
 public class LinearEquation {

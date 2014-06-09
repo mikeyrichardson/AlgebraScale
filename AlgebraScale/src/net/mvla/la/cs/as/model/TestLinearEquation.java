@@ -1,4 +1,5 @@
-package net.mvla.la.cs.scale;
+package net.mvla.la.cs.as.model;
+
 
 public class TestLinearEquation {
 	public static void main(String[] args) {

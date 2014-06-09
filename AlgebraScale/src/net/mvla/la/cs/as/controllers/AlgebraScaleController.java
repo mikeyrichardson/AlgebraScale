@@ -1,4 +1,4 @@
-package net.mvla.la.cs.scale;
+package net.mvla.la.cs.as.controllers;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -18,6 +18,16 @@ import java.util.Collections;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import net.mvla.la.cs.as.model.AlgebraScaleModel;
+import net.mvla.la.cs.as.model.EquationFormatException;
+import net.mvla.la.cs.as.model.LinearEquation;
+import net.mvla.la.cs.as.model.Piece;
+import net.mvla.la.cs.as.model.UserDatabase;
+import net.mvla.la.cs.as.views.AlgebraScaleView;
+import net.mvla.la.cs.as.views.LessonView;
+import net.mvla.la.cs.as.views.ScaleDisplayPanel;
+import net.mvla.la.cs.as.views.UserNameView;
 
 import org.apache.commons.math3.fraction.Fraction;
 

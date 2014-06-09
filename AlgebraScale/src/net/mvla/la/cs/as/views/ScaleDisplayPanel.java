@@ -1,4 +1,4 @@
-package net.mvla.la.cs.scale;
+package net.mvla.la.cs.as.views;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+
+import net.mvla.la.cs.as.model.Piece;
 
 class ScaleDisplayPanel extends JPanel implements MouseMotionListener {
 	

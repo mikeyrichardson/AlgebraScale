@@ -1,4 +1,4 @@
-package net.mvla.la.cs.scale;
+package net.mvla.la.cs.as.model;
 
 import java.util.ArrayList;
 

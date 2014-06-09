@@ -1,4 +1,4 @@
-package net.mvla.la.cs.scale;
+package net.mvla.la.cs.as.views;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -9,6 +9,9 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import net.mvla.la.cs.as.model.UserDatabase;
+import net.mvla.la.cs.as.model.UserDatabase.User;
 
 public class UserNameView extends JPanel {
 	

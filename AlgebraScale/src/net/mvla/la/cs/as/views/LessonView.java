@@ -1,4 +1,4 @@
-package net.mvla.la.cs.scale;
+package net.mvla.la.cs.as.views;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,8 +8,12 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
 import javax.swing.JLabel;
+
+import net.mvla.la.cs.as.model.UserDatabase;
+import net.mvla.la.cs.as.model.UserDatabase.Exercise;
+import net.mvla.la.cs.as.model.UserDatabase.Lesson;
+import net.mvla.la.cs.as.model.UserDatabase.User;
 
 public class LessonView extends JPanel {
 	
