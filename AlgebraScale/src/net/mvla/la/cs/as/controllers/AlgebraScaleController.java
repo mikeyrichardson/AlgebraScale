@@ -86,17 +86,6 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 		scaleView.addDisplayPanelComponentListener(this);
 		scaleView.addButtonListener(this);
 		this.setContentPane(userNameView);
-		
-		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-
-	        public void run() {
-		        	try {
-		    			userDatabase.export(dataFile);
-		    		} catch (Exception ex) {
-		    			ex.printStackTrace();
-		    		}
-	        }
-		}));
 	}
 	
 	public JPanel getCurrentView() {
@@ -391,16 +380,10 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void mouseEntered(MouseEvent e) {}
 
 	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void mouseExited(MouseEvent e) {}
 
 	@Override
 	public void componentResized(ComponentEvent e) {
@@ -411,10 +394,7 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 	}
 
 	@Override
-	public void componentMoved(ComponentEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void componentMoved(ComponentEvent e) {}
 
 	@Override
 	public void componentShown(ComponentEvent e) {
@@ -423,10 +403,7 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 	}
 
 	@Override
-	public void componentHidden(ComponentEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void componentHidden(ComponentEvent e) {}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {		
@@ -719,6 +696,11 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 		// if you made it to here, then you're correct
 		if (currentLesson != 0 && currentExercise != 0) {
 			currentUser.setComplete(currentLesson, currentExercise);
+			try {
+    			userDatabase.export(dataFile);
+    		} catch (Exception ex) {
+    			ex.printStackTrace();
+    		}
 		}
 		scaleView.messageDisplayLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 32));
 		scaleView.messageDisplayLabel
