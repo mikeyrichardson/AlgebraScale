@@ -1,9 +1,12 @@
 package net.mvla.la.cs.as.views;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -11,7 +14,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import net.mvla.la.cs.as.model.UserDatabase;
-import net.mvla.la.cs.as.model.UserDatabase.User;
 
 public class UserNameView extends JPanel {
 	
@@ -28,7 +30,8 @@ public class UserNameView extends JPanel {
 
 	public UserNameView(ArrayList<UserDatabase.User> users) {
 		this.setLayout(null);
-		welcomeMessage = new JLabel("<html><center>Welcome to Algebra Scale!<br>Choose your user name.</center></html>");
+		welcomeMessage = new JLabel("<html><center>Welcome to Algebra Scale!<br>"
+				+ "Choose your user name.</center></html>");
 		welcomeMessage.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 36));
 		this.add(welcomeMessage);
 		welcomeMessage.setBounds(170, 10, 600, 100);
@@ -48,8 +51,20 @@ public class UserNameView extends JPanel {
 			}
 		}
 		
-		createNewUserLabel = new JLabel("New user name: ");
+		createNewUserLabel = new JLabel("Or create a new account: ");
 		createNewUserTextField = new JTextField("Type your user name here.");
+		createNewUserTextField.setForeground(Color.GRAY);
+		createNewUserTextField.addFocusListener(new FocusListener(){
+	        @Override
+	        public void focusGained(FocusEvent e){
+	            createNewUserTextField.setText("");
+	            createNewUserTextField.setForeground(Color.BLACK);
+	        }
+	        @Override
+	        public void focusLost(FocusEvent e) {
+	        	
+	        }
+	    });;
 		createNewUserButton = new JButton("Create New User");
 		createNewUserPanel = new JPanel();
 		createNewUserPanel.add(createNewUserLabel);
