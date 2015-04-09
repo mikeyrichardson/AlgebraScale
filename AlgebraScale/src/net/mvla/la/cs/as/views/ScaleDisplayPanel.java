@@ -18,19 +18,20 @@ import net.mvla.la.cs.as.model.Piece;
 
 public class ScaleDisplayPanel extends JPanel implements MouseMotionListener {
 	
-	//these values give the relative sizes of all of the images in the GUI
-	//they are meant to be tweaked to achieve the best overall look to the GUI
-	//the actual values for all of these values (in pixels) are set in the 
-	//function setSizes
 	public final static int BOTH_SIDES_EQUAL = 0;
 	public final static int LEFT_SIDE_HEAVIER = 1;
 	public final static int RIGHT_SIDE_HEAVIER = -1;
+	public final static int DEFAULT_WIDTH = 800;
+	public final static int DEFAULT_HEIGHT = 380;
+	
+	//these static variables give the relative sizes of all of the images in the GUI
+	//they are meant to be tweaked to achieve the best overall look to the GUI
+	//the actual size values (in pixels) are set in the function setSizes()
+
 	public final static double PIECE_WIDTH_PERCENTAGE = 0.03; //percentage of screen width
 	public final static double BOX_HEIGHT_PERCENTAGE = 0.05;
 	public final static double VARIABLE_PIECE_SCALE_FACTOR = 1.7; //how many times bigger the variables are
 	public final static double PIECE_ROW_SPACING_PERCENTAGE = 0.02;
-	public final static int DEFAULT_WIDTH = 800;
-	public final static int DEFAULT_HEIGHT = 380;
 	public final static double SCALE_LEFT_MARGIN_PERCENTAGE = 0.02; //spacing between rows of pieces in pile
 	public final static double PILE_LEFT_MARGIN_PERCENTAGE = 0.28;
 	public final static double BOTTOM_MARGIN_PERCENTAGE = 0.05;
@@ -54,6 +55,7 @@ public class ScaleDisplayPanel extends JPanel implements MouseMotionListener {
 	public final static double JOINT_VERTICAL_POSITION_PERCENTAGE = 0.13 + SHELF_VERTICAL_POSITION_PERCENTAGE;
 	public final static double SCALE_MOVEMENT_DISTANCE_PERCENTAGE = 0.04;
 	
+	//the pixel values determined by the above relative values
 	public int pieceWidth;
 	public int boxHeight;
 	public int balloonHeight;
