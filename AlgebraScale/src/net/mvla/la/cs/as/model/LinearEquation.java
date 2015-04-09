@@ -19,11 +19,17 @@ public class LinearEquation {
 		catch (LinearExpressionFormatException e) {
 			throw new EquationFormatException("Left Side Error: " + e.getMessage());
 		}
+		catch (Exception e) {
+			throw new EquationFormatException("The left side of the equation is formatted incorrectly.");
+		}
 		try {
 			rightSide = new LinearExpression(splitEquation[1]);
 		}
 		catch (LinearExpressionFormatException e) {
 			throw new EquationFormatException("Right Side Error: " + e.getMessage());
+		}
+		catch (Exception e) {
+			throw new EquationFormatException("The right side of the equation is formatted incorrectly.");
 		}
 
 	}
