@@ -18,6 +18,7 @@ import net.mvla.la.cs.as.model.UserDatabase.User;
 public class LessonView extends JPanel {
 	
 	JPanel[] lessonPanelArray;
+	static final Color LESSON_COMPLETED_COLOR = new Color(3, 163, 41);
 
 	public LessonView(UserDatabase.User user, ActionListener listener) {
 		lessonPanelArray = new JPanel[user.lessonList.size()];
@@ -32,7 +33,7 @@ public class LessonView extends JPanel {
 				UserDatabase.Exercise exercise = exercises.get(j);
 				JButton button = new JButton("#" + exercise.exerciseNumber);
 				if (exercise.isCompleted) {
-					button.setForeground(Color.GREEN);
+					button.setForeground(LESSON_COMPLETED_COLOR);
 				}
 				button.setActionCommand("Lesson:" + lesson.lessonNumber + "#" + exercise.exerciseNumber);
 				button.addActionListener(listener);
