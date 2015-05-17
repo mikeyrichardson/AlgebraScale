@@ -20,28 +20,20 @@ import net.mvla.la.cs.as.model.EquationFormatException;
 import net.mvla.la.cs.as.model.LinearEquation;
 import net.mvla.la.cs.as.model.Piece;
 import net.mvla.la.cs.as.model.UserDatabase;
-import net.mvla.la.cs.as.views.AlgebraScaleView;
+import net.mvla.la.cs.as.views.ProblemView;
 import net.mvla.la.cs.as.views.LessonView;
 import net.mvla.la.cs.as.views.ScaleDisplayPanel;
 import net.mvla.la.cs.as.views.UserNameView;
 
 import org.apache.commons.math3.fraction.Fraction;
 
-public class AlgebraScaleController extends JFrame implements MouseListener,
+public class AlgebraScaleController implements MouseListener,
 		ComponentListener, ActionListener {
-	public static void main(String[] args) {
-		
-		AlgebraScaleController window = new AlgebraScaleController();
-		window.setSize(800, 600);		
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setVisible(true);
 
-
-	}
 	
 	public static final long serialVersionUID = 28376583947L;
 	private UserNameView userNameView;
-	private AlgebraScaleView scaleView;
+	private ProblemView scaleView;
 	private AlgebraScaleModel model;
 	private ScaleDisplayPanel panel;
 	private UserDatabase userDatabase;
@@ -49,11 +41,10 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 	private UserDatabase.User currentUser;
 	private int currentLesson;
 	private int currentExercise;
+	private JFrame view;
 
-	public AlgebraScaleController() {
+	public AlgebraScaleController(JFrame window) {
 		
-		
-
 		File dataDir = new File(System.getProperty("user.home") + File.separator + ".AlgebraScale");
 		if (!dataDir.exists()) {
 			dataDir.mkdirs();
@@ -78,14 +69,15 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 		}
 		
 		this.model = new AlgebraScaleModel(new LinearEquation(1, 0, 0, 0));
-		scaleView = new AlgebraScaleView();
+		scaleView = new ProblemView();
 		userNameView = new UserNameView(userDatabase.userList);
 		userNameView.addButtonListener(this);
 		this.panel = scaleView.displayPanel;
 		scaleView.addDisplayPanelMouseListener(this);
 		scaleView.addDisplayPanelComponentListener(this);
 		scaleView.addButtonListener(this);
-		this.setContentPane(userNameView);
+		this.view = window;
+		view.setContentPane(userNameView);
 	}
 	
 	public JPanel getCurrentView() {
@@ -433,13 +425,13 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 		else if (e.getActionCommand().equals("Type in your own equations")) {
 			currentLesson = 0;
 			currentExercise = 0;
-			this.setContentPane(scaleView);
+			view.setContentPane(scaleView);
 			scaleView.previousExerciseButton.setVisible(false);
 			scaleView.nextExerciseButton.setVisible(false);
 			scaleView.equationInputLabel.setVisible(true);
 			scaleView.equationInputTextField.setVisible(true);
 			scaleView.submitEquationButton.setVisible(true);
-			this.validate();
+			view.validate();
 			submitEquation("x=0");
 			scaleView.equationDisplayLabel.setText("Enter your equation");
 			scaleView.messageDisplayLabel.setText("");
@@ -451,13 +443,13 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 			String command = e.getActionCommand();
 			currentLesson = Integer.parseInt(command.substring(7,command.indexOf('#')));
 			currentExercise = Integer.parseInt(command.substring(command.indexOf('#') + 1));
-			setContentPane(scaleView);
+			view.setContentPane(scaleView);
 			scaleView.previousExerciseButton.setVisible(true);
 			scaleView.nextExerciseButton.setVisible(true);
 			scaleView.equationInputLabel.setVisible(false);
 			scaleView.equationInputTextField.setVisible(false);
 			scaleView.submitEquationButton.setVisible(false);
-			this.validate();
+			view.validate();
 			submitEquation(this.currentUser.getLesson(currentLesson).getExerciseString(currentExercise));
 		}
 		
@@ -494,15 +486,11 @@ public class AlgebraScaleController extends JFrame implements MouseListener,
 		for (UserDatabase.User user : userDatabase.userList ) {
 			if (user.userName.equals(userName)) {
 				currentUser = user;
-				setContentPane(new LessonView(user, this));
-				this.validate();
+				view.setContentPane(new LessonView(user, this));
+				view.validate();
 				break;
 			}
 		}
-	}
-	
-	void setScaleView(String equation) {
-		
 	}
 	
 	int getHeight(Piece piece) {
