@@ -1,11 +1,7 @@
 # AlgebraScale
 A program to help students conceptualize the solving of linear equations
 
-![Screen Shot of Algebra Scale Program](https://github.com/mikeyrichardson/AlgebraScale/blob/master/AlgebraScaleScreenShot.png 
-"Screen Shot of Algebra Scale Program")
-
-AlgebraScale relies on the Fraction class from the org.apache.commons.math3.fraction package.
-This package can be downloaded from the [Apache Website](http://commons.apache.org/proper/commons-math/download_math.cgi).
+![Screen Shot of Algebra Scale Program](AlgebraScaleScreenShot.png)
 
 Here's a video demonstration of the program: [Algebra Scale Demonstration Video](https://www.youtube.com/watch?v=2enx-fsJMTk)
 
