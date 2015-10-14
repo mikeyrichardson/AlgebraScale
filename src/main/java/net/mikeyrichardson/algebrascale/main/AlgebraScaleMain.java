@@ -1,8 +1,8 @@
-package net.mvla.la.cs.as.main;
+package net.mikeyrichardson.algebrascale.main;
 
 import javax.swing.JFrame;
 
-import net.mvla.la.cs.as.controllers.AlgebraScaleController;
+import net.mikeyrichardson.algebrascale.controllers.AlgebraScaleController;
 
 public class AlgebraScaleMain {
 	

@@ -1,4 +1,4 @@
-package net.mvla.la.cs.as.views;
+package net.mikeyrichardson.algebrascale.views;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import net.mvla.la.cs.as.model.Piece;
+import net.mikeyrichardson.algebrascale.model.Piece;
 
 public class ScaleDisplayPanel extends JPanel implements MouseMotionListener {
 	
@@ -471,7 +471,6 @@ public class ScaleDisplayPanel extends JPanel implements MouseMotionListener {
 
 
 	//this updates the position of the dragged piece
-	@Override
 	public void mouseDragged(MouseEvent e) {
 		if (draggedPiece != null) {
 			draggedPiece.setRelativeX((double)(e.getX() - draggedPieceOffsetX) / getWidth());
@@ -480,7 +479,6 @@ public class ScaleDisplayPanel extends JPanel implements MouseMotionListener {
 		repaint();
 	}
 
-	@Override
 	public void mouseMoved(MouseEvent e) {
 		//does nothing
 	}

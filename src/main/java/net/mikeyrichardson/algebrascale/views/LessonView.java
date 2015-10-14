@@ -1,4 +1,4 @@
-package net.mvla.la.cs.as.views;
+package net.mikeyrichardson.algebrascale.views;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,12 +8,13 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JLabel;
 
-import net.mvla.la.cs.as.model.UserDatabase;
-import net.mvla.la.cs.as.model.UserDatabase.Exercise;
-import net.mvla.la.cs.as.model.UserDatabase.Lesson;
-import net.mvla.la.cs.as.model.UserDatabase.User;
+import net.mikeyrichardson.algebrascale.model.UserDatabase;
+import net.mikeyrichardson.algebrascale.model.UserDatabase.Exercise;
+import net.mikeyrichardson.algebrascale.model.UserDatabase.Lesson;
+import net.mikeyrichardson.algebrascale.model.UserDatabase.User;
+
+import javax.swing.JLabel;
 
 public class LessonView extends JPanel {
 	

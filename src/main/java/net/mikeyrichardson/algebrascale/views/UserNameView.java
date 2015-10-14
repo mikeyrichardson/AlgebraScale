@@ -1,4 +1,4 @@
-package net.mvla.la.cs.as.views;
+package net.mikeyrichardson.algebrascale.views;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import net.mvla.la.cs.as.model.UserDatabase;
+import net.mikeyrichardson.algebrascale.model.UserDatabase;
 
 public class UserNameView extends JPanel {
 	
@@ -55,12 +55,10 @@ public class UserNameView extends JPanel {
 		createNewUserTextField = new JTextField("Type your user name here.");
 		createNewUserTextField.setForeground(Color.GRAY);
 		createNewUserTextField.addFocusListener(new FocusListener(){
-	        @Override
 	        public void focusGained(FocusEvent e){
 	            createNewUserTextField.setText("");
 	            createNewUserTextField.setForeground(Color.BLACK);
 	        }
-	        @Override
 	        public void focusLost(FocusEvent e) {
 	        	
 	        }

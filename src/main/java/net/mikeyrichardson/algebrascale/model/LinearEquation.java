@@ -1,4 +1,4 @@
-package net.mvla.la.cs.as.model;
+package net.mikeyrichardson.algebrascale.model;
 
 import org.apache.commons.math3.fraction.Fraction;
 

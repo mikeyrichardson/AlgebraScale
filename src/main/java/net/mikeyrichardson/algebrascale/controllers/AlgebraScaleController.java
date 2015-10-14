@@ -1,4 +1,4 @@
-package net.mvla.la.cs.as.controllers;
+package net.mikeyrichardson.algebrascale.controllers;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -15,15 +15,15 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import net.mvla.la.cs.as.model.AlgebraScaleModel;
-import net.mvla.la.cs.as.model.EquationFormatException;
-import net.mvla.la.cs.as.model.LinearEquation;
-import net.mvla.la.cs.as.model.Piece;
-import net.mvla.la.cs.as.model.UserDatabase;
-import net.mvla.la.cs.as.views.ProblemView;
-import net.mvla.la.cs.as.views.LessonView;
-import net.mvla.la.cs.as.views.ScaleDisplayPanel;
-import net.mvla.la.cs.as.views.UserNameView;
+import net.mikeyrichardson.algebrascale.model.AlgebraScaleModel;
+import net.mikeyrichardson.algebrascale.model.EquationFormatException;
+import net.mikeyrichardson.algebrascale.model.LinearEquation;
+import net.mikeyrichardson.algebrascale.model.Piece;
+import net.mikeyrichardson.algebrascale.model.UserDatabase;
+import net.mikeyrichardson.algebrascale.views.LessonView;
+import net.mikeyrichardson.algebrascale.views.ProblemView;
+import net.mikeyrichardson.algebrascale.views.ScaleDisplayPanel;
+import net.mikeyrichardson.algebrascale.views.UserNameView;
 
 import org.apache.commons.math3.fraction.Fraction;
 
@@ -103,7 +103,6 @@ public class AlgebraScaleController implements MouseListener,
 	}
 	
 	
-	@Override
 	public void mouseClicked(MouseEvent e) {
 		panel.draggedPiece = null;
 		int x = e.getX();
@@ -230,7 +229,6 @@ public class AlgebraScaleController implements MouseListener,
 		
 	}
 
-	@Override
 	public void mousePressed(MouseEvent e) {
 		panel.draggedPiece = null;
 		int x = e.getX();
@@ -304,7 +302,6 @@ public class AlgebraScaleController implements MouseListener,
 
 	
 
-	@Override
 	public void mouseReleased(MouseEvent e) {
 		Piece draggedPiece = panel.draggedPiece;
 		if (draggedPiece == null)
@@ -371,13 +368,10 @@ public class AlgebraScaleController implements MouseListener,
 
 	}
 
-	@Override
 	public void mouseEntered(MouseEvent e) {}
 
-	@Override
 	public void mouseExited(MouseEvent e) {}
 
-	@Override
 	public void componentResized(ComponentEvent e) {
 		panel.setSizes();
 		panel.createScaledImages();
@@ -385,20 +379,16 @@ public class AlgebraScaleController implements MouseListener,
 		panel.redrawOffScreenCanvas(model.pieces);
 	}
 
-	@Override
 	public void componentMoved(ComponentEvent e) {}
 
-	@Override
 	public void componentShown(ComponentEvent e) {
 		componentResized(e);
 
 	}
 
-	@Override
 	public void componentHidden(ComponentEvent e) {}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {		
+    public void actionPerformed(ActionEvent e) {		
 		if (e.getActionCommand().equals("Check Answer")) {
 			checkAnswer();
 		}

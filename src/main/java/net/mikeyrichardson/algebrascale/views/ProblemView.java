@@ -1,4 +1,4 @@
-package net.mvla.la.cs.as.views;
+package net.mikeyrichardson.algebrascale.views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
